@@ -16,8 +16,7 @@ public class HomeController {
 	}
 	
 	@GetMapping("/")
-	private String goUpload(MultipartFile file, Model model) {
-		model.addAttribute("file", file);
+	private String goUpload() {
 		return "fileUpload";
 	}
 	
