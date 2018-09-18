@@ -1,5 +1,8 @@
 package pl.ireneuszderucki.webapp;
 
+import java.util.TimeZone;
+
+import javax.annotation.PostConstruct;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -33,6 +36,11 @@ public class AppInitializer implements WebApplicationInitializer {
 				MAX_UPLOAD_SIZE, MAX_UPLOAD_SIZE * 2, MAX_UPLOAD_SIZE / 2);
 		         
 		dispatcher.setMultipartConfig(multipartConfigElement);
+	}
+	
+	@PostConstruct
+	void started() {
+		TimeZone.setDefault(TimeZone.getTimeZone("CEST"));
 	}
 }	
 	
